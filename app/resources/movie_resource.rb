@@ -8,6 +8,7 @@ class MovieResource < ApplicationResource
   attribute :description, :string
   attribute :image, :string
   attribute :director_id, :integer
+  attribute :lang, :string
 
   # Direct associations
 

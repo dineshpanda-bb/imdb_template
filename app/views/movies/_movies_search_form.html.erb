@@ -41,6 +41,11 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :lang_cont, "Lang contains" %>
+    <%= f.text_field :lang_cont, :class => "form-control", :placeholder => "Lang contains" %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :created_at, "Created at" %>
     <div class="row">
       <div class='col-md-6 mb-1'>
@@ -87,8 +92,8 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :director_name_cont, "Director name contains" %>
-    <%= f.text_field :director_name_cont, :class => "form-control", :placeholder => "Director name contains" %>
+    <%= f.label :director_bio_cont, "Director bio contains" %>
+    <%= f.text_field :director_bio_cont, :class => "form-control", :placeholder => "Director bio contains" %>
   </div>
 
   <div class="form-group">

@@ -112,21 +112,43 @@
     <% end %>
   </div>
   <div class="form-group">
-    <% director_id_class = "form-control" %>
-    <% director_id_was_invalid = movie.errors.include?(:director_id) %>
+    <% director_class = "form-control" %>
+    <% director_was_invalid = movie.errors.include?(:director) %>
 
     <% if was_validated %>
-      <% if director_id_was_invalid %>
-        <% director_id_class << " is-invalid" %>
+      <% if director_was_invalid %>
+        <% director_class << " is-invalid" %>
       <% else %>
-        <% director_id_class << " is-valid" %>
+        <% director_class << " is-valid" %>
       <% end %>
     <% end %>
 
     <%= f.label :director_id %>
     <%= f.select :director_id, options_from_collection_for_select(Director.all, :id, :to_s, @movie.director_id), {}, class: "form-control" %>
-    <% if director_id_was_invalid %>
-      <% movie.errors.full_messages_for(:director_id).each do |message| %>
+    <% if director_was_invalid %>
+      <% movie.errors.full_messages_for(:director).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <% lang_class = "form-control" %>
+    <% lang_was_invalid = movie.errors.include?(:lang) %>
+
+    <% if was_validated %>
+      <% if lang_was_invalid %>
+        <% lang_class << " is-invalid" %>
+      <% else %>
+        <% lang_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :lang %>
+    <%= f.text_field :lang, class: lang_class, placeholder: "Enter lang" %>
+    <% if lang_was_invalid %>
+      <% movie.errors.full_messages_for(:lang).each do |message| %>
         <div class="invalid-feedback d-flex">
           <%= message %>
         </div>

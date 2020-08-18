@@ -2,21 +2,21 @@
 
 <%= form_with(model: role, local: true, novalidate: true, class: "mb-3") do |f| %>
   <div class="form-group">
-    <% movie_id_class = "form-control" %>
-    <% movie_id_was_invalid = role.errors.include?(:movie_id) %>
+    <% movie_class = "form-control" %>
+    <% movie_was_invalid = role.errors.include?(:movie) %>
 
     <% if was_validated %>
-      <% if movie_id_was_invalid %>
-        <% movie_id_class << " is-invalid" %>
+      <% if movie_was_invalid %>
+        <% movie_class << " is-invalid" %>
       <% else %>
-        <% movie_id_class << " is-valid" %>
+        <% movie_class << " is-valid" %>
       <% end %>
     <% end %>
 
     <%= f.label :movie_id %>
     <%= f.select :movie_id, options_from_collection_for_select(Movie.all, :id, :to_s, @role.movie_id), {}, class: "form-control" %>
-    <% if movie_id_was_invalid %>
-      <% role.errors.full_messages_for(:movie_id).each do |message| %>
+    <% if movie_was_invalid %>
+      <% role.errors.full_messages_for(:movie).each do |message| %>
         <div class="invalid-feedback d-flex">
           <%= message %>
         </div>
@@ -24,21 +24,21 @@
     <% end %>
   </div>
   <div class="form-group">
-    <% actor_id_class = "form-control" %>
-    <% actor_id_was_invalid = role.errors.include?(:actor_id) %>
+    <% actor_class = "form-control" %>
+    <% actor_was_invalid = role.errors.include?(:actor) %>
 
     <% if was_validated %>
-      <% if actor_id_was_invalid %>
-        <% actor_id_class << " is-invalid" %>
+      <% if actor_was_invalid %>
+        <% actor_class << " is-invalid" %>
       <% else %>
-        <% actor_id_class << " is-valid" %>
+        <% actor_class << " is-valid" %>
       <% end %>
     <% end %>
 
     <%= f.label :actor_id %>
     <%= f.select :actor_id, options_from_collection_for_select(Actor.all, :id, :to_s, @role.actor_id), {}, class: "form-control" %>
-    <% if actor_id_was_invalid %>
-      <% role.errors.full_messages_for(:actor_id).each do |message| %>
+    <% if actor_was_invalid %>
+      <% role.errors.full_messages_for(:actor).each do |message| %>
         <div class="invalid-feedback d-flex">
           <%= message %>
         </div>

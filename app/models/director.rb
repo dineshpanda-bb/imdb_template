@@ -14,6 +14,6 @@ class Director < ApplicationRecord
   # Scopes
 
   def to_s
-    name
+    bio
   end
 end

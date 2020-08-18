@@ -27,5 +27,10 @@
 
   <%= f.hidden_field :director_id, value: @director.id %>
 
+  <div class="form-group">
+    <%= f.label :lang %>
+    <%= f.text_field :lang, class: "form-control" %>
+  </div>
+
   <%= f.submit "Create movie", class: "btn btn-block btn-outline-secondary" %>
 <% end %>
